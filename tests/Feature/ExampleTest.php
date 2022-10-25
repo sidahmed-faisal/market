@@ -18,4 +18,11 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+    public function test_the_application_navigate_to_home()
+    {
+        $response = $this->get('/home');
+
+        $response->assertStatus(200);
+    }
+
 }
