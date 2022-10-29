@@ -27,34 +27,28 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
-@if (session('message'))
-    <div class="alert alert-success">{{session('message')}}</div>
-@endif
-<a href="{{url('/categories/create')}}" class="btn btn-primary float-end">create category </a>
+{{-- <a href="{{url('/categories')}}" class="btn btn-primary float-end">back </a> --}}
 
+<div class="card">
+    <div class="card">
+        <h4>
+            Add Category
+            <a href="{{url('/categories')}}" class="btn btn-primary float-end">back </a>
+        </h4>
+    </div>
+    <div class="card-body">
+        <form action="{{url('/categories')}}" method="POST">
+            @csrf
+            <div class="mb-3">
+                <label for="">Category name</label>
+                <input type="text" name="name" class="form-control">
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">save</button>
+            </div>
+        </form>
+    </div>
 
-{{-- <div class="container">
-    <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">category name</th>
-            <h3>categories</h3> --}}
-{{dd($categories)}}
-{{-- @foreach ($categories as $category)
-    <p>{{$category->name}}</p>
-
-@endforeach --}}
-          </tr>
-        </thead>
-        <tbody>
-
-          <tr>
-
-          </tr>
-
-        </tbody>
-      </table>
 </div>
 
 
